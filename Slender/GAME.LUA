@@ -21,6 +21,20 @@ ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
 ambient:play(7)
 
+stage1 = sound.load("assets/sounds/stage1.mp3")
+stage1:loop()
+stage2 = sound.load("assets/sounds/stage2.mp3")
+stage2:loop()
+stage3 = sound.load("assets/sounds/stage3.mp3")
+stage3:loop()
+stage4 = sound.load("assets/sounds/stage4.mp3")
+stage4:loop()
+
+currentGameStage = 0
+changeStage = false
+
+bgTimer:reset(0)
+bgTimer:start()
 
 amg.typelight(1,__DIRECTIONAL)
 amg.colorlight(1,color.new(20,20,35),color.new(19, 19, 30),color.new(20,20,35))
@@ -53,6 +67,29 @@ function render ()
 end
 
 function update ()
+
+	if bgTimer:time() >= 300000 and bgTimer:time() < 600000 and currentGameStage == 0 then
+		currentGameStage = 1
+		changeStage = true
+	elseif bgTimer:time() >= 600000 and bgTimer:time() < 900000 and currentGameStage == 1 then
+		currentGameStage = 2
+		changeStage = true
+	elseif bgTimer:time() >= 900000 and bgTimer:time() < 1200000 and currentGameStage == 2 then
+		currentGameStage = 3
+		changeStage = true
+	elseif bgTimer:time() >= 1200000 and bgTimer:time() < 1500000 and currentGameStage == 3 then
+		currentGameStage = 4
+		changeStage = true
+	end
+
+	if changeStage then
+		if currentGameStage == 1 then stage1:play(6) end
+		if currentGameStage == 2 then stage2:play(6) end
+		if currentGameStage == 3 then stage3:play(6) end
+		if currentGameStage == 4 then stage4:play(6) end
+		changeStage = false
+	end
+
 	if buttons.cross or buttons.held.cross then
 		playerRot[1] = playerRot[1] - 1
 	end
