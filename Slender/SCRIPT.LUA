@@ -1,5 +1,5 @@
 collectgarbage()
-
+os.cpu(333)
 splash.old("assets/titleFull.png")
 
 pages = {image.load("./assets/pages/page1.png")
@@ -74,8 +74,8 @@ while true do
 		if selection == 0 then
 			menu:stop()
 			
-			dofile("INTRO.LUA")
-			-- DOFILE GAME
+			--dofile("INTRO.LUA")
+			dofile("GAME.LUA")
 			
 			menu:play()
 		elseif selection == 1 then
