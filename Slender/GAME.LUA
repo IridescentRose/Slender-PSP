@@ -37,8 +37,12 @@ bgTimer:reset(0)
 bgTimer:start()
 
 amg.typelight(1,__DIRECTIONAL)
-amg.colorlight(1,color.new(20,20,35),color.new(19, 19, 30),color.new(20,20,35))
-amg.poslight(1,{0.5,1,0.5})
+amg.colorlight(1,color.new(12,12,24),color.new(10, 10, 14),color.new(12,12,24))
+amg.poslight(1,{0,3,0})
+
+amg.spotlight(2, {0, 0, 0}, 100, 90)
+amg.colorlight(2, white, white, white)
+amg.poslight(2,{0,-3,0})
 
 deltaTimer = timer.new()
 deltaTimer:start()
@@ -54,8 +58,10 @@ function render ()
 	amg.mode2d(0)
 
 	amg.light(1, 1)
+	amg.light(2, 1)
 	model3d.render(Terrain)
 	amg.light(1, 0)
+	amg.light(2, 0)
 	
 	--On screen stuff here!
 	amg.mode2d(1)
