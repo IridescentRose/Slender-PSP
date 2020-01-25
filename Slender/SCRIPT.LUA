@@ -74,7 +74,7 @@ while true do
 		if selection == 0 then
 			menu:stop()
 			
-			-- DOFILE INTRO
+			dofile("INTRO.LUA")
 			-- DOFILE GAME
 			
 			menu:play()
