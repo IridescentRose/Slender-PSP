@@ -81,7 +81,7 @@ while true do
 		elseif selection == 1 then
 			menu:stop()
 			
-			-- DOFILE CREDITS
+			dofile("CREDITS.LUA")
 			
 			menu:play()
 		else
