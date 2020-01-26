@@ -42,7 +42,7 @@ amg.poslight(1,{0,3,0})
 
 amg.spotlight(2, {0, 0, 0}, 100, 90)
 amg.colorlight(2, white, white, white)
-amg.poslight(2,{0,-3,0})
+amg.poslight(2,{0,4,0})
 
 deltaTimer = timer.new()
 deltaTimer:start()
