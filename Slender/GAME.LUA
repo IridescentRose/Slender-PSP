@@ -7,7 +7,7 @@ player = cam3d.new()
 cam3d.position(player,{180,180,180})
 
 playerRot = {0, 0, 0}
-playerPos = {0, 0, 0}
+playerPos = {0, 3.6, 0}
 playerUp = {0, 5, 0}
 
 model3d.initphysics(30)
@@ -15,7 +15,7 @@ model3d.initphysics(30)
 Terrain = model3d.load("assets/model/plane.obj")
 model3d.setphysics(Terrain,1,{0,0,0},{0,0,0},0,__CONVEX)
 model3d.physics(Terrain)
-model3d.position(Terrain, 1, {0, -9, 0})
+model3d.position(Terrain, 1, {0, 0, 0})
 
 ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
@@ -40,9 +40,17 @@ amg.typelight(1,__DIRECTIONAL)
 amg.colorlight(1,color.new(12,12,24),color.new(10, 10, 14),color.new(12,12,24))
 amg.poslight(1,{0,3,0})
 
-amg.spotlight(2, {0, 0, 0}, 100, 90)
+amg.typelight(2, __POINT)
 amg.colorlight(2, white, white, white)
-amg.poslight(2,{0,4,0})
+amg.poslight(2,{0,2,0})
+
+amg.typelight(3, __POINT)
+amg.colorlight(3, white, white, white)
+amg.poslight(3,{0,2,0})
+
+amg.typelight(4, __POINT)
+amg.colorlight(4, white, white, white)
+amg.poslight(4,{0,2,0})
 
 deltaTimer = timer.new()
 deltaTimer:start()
@@ -59,9 +67,13 @@ function render ()
 
 	amg.light(1, 1)
 	amg.light(2, 1)
+	amg.light(3, 1)
+	amg.light(4, 1)
 	model3d.render(Terrain)
 	amg.light(1, 0)
 	amg.light(2, 0)
+	amg.light(3, 0)
+	amg.light(4, 0)
 	
 	--On screen stuff here!
 	amg.mode2d(1)
@@ -158,11 +170,39 @@ function update ()
 		playerPos[3] = playerPos[3] - math.cos(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
 	end
 	
+	unitEye = {}
+	unitEye[1] = playerEye2[1]
+	unitEye[2] = playerEye2[2]
+	unitEye[3] = playerEye2[3] 
+
+	length = math.sqrt(playerEye2[1] * playerEye2[1] + playerEye2[2] * playerEye2[2] + playerEye2[3] * playerEye2[3])
+
+	unitEye[1] = unitEye[1] / length
+	unitEye[2] = unitEye[2] / length
+	unitEye[3] = unitEye[3] / length
+
 	playerEye[1] = playerEye2[1] + playerPos[1]
 	playerEye[2] = playerEye2[2] + playerPos[2]
 	playerEye[3] = playerEye2[3] + playerPos[3]
 	
 	cam3d.position(player, playerPos)
+
+	flashPos = {}
+	flashPos[1] = unitEye[1] + playerPos[1]
+	flashPos[2] = unitEye[2] + playerPos[2]
+	flashPos[3] = unitEye[3] + playerPos[3]
+
+	amg.poslight(2, flashPos)
+	flashPos[1] = unitEye[1]*9 + playerPos[1]
+	flashPos[2] = unitEye[2]*9 + playerPos[2]
+	flashPos[3] = unitEye[3]*9 + playerPos[3]
+	amg.poslight(3, flashPos)
+	flashPos[1] = unitEye[1]*18 + playerPos[1]
+	flashPos[2] = unitEye[2]*18 + playerPos[2]
+	flashPos[3] = unitEye[3]*18 + playerPos[3]
+	amg.poslight(4, flashPos)
+
+
 	cam3d.eye(player, playerEye)
 	cam3d.up(player, playerUp)
 end
