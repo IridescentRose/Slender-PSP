@@ -21,6 +21,8 @@ ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
 ambient:play(7)
 
+clickfx = sound.load("assets/sounds/flashlight.mp3")
+
 stage1 = sound.load("assets/sounds/stage1.mp3")
 stage1:loop()
 stage2 = sound.load("assets/sounds/stage2.mp3")
@@ -32,6 +34,9 @@ stage4:loop()
 
 currentGameStage = 0
 changeStage = false
+
+
+flashLightEnabled = 1
 
 bgTimer:reset(0)
 bgTimer:start()
@@ -66,9 +71,9 @@ function render ()
 	amg.mode2d(0)
 
 	amg.light(1, 1)
-	amg.light(2, 1)
-	amg.light(3, 1)
-	amg.light(4, 1)
+	amg.light(2, flashLightEnabled)
+	amg.light(3, flashLightEnabled)
+	amg.light(4, flashLightEnabled)
 	model3d.render(Terrain)
 	amg.light(1, 0)
 	amg.light(2, 0)
@@ -127,6 +132,11 @@ function update ()
 	
 	if playerRot[1] > 89 then
 		playerRot[1] = 89
+	end
+
+	if buttons.released.r then
+		if flashLightEnabled == 0 then flashLightEnabled = 1 else flashLightEnabled = 0 end
+		clickfx:play()
 	end
 	
 	playerEye = {0, 0, -1}

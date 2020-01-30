@@ -47,7 +47,7 @@ menu = sound.load("assets/sounds/menu.mp3")
 menu:loop()
 menu:play()
 
-button = sound.load("assets/sounds/flashlight.wav")
+button = sound.load("assets/sounds/flashlight.mp3")
 
 while true do
 	buttons.read()
