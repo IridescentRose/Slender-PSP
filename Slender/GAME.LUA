@@ -2,7 +2,7 @@ amg.init()
 amg.quality(__8888)
 amg.renderstyle(__TRIANGLES)
 amg.perspective(75)
-
+fovChange = 0
 player = cam3d.new()
 cam3d.position(player,{180,180,180})
 
@@ -33,6 +33,9 @@ stage3:loop()
 stage4 = sound.load("assets/sounds/stage4.mp3")
 stage4:loop()
 
+zoomNoise = sound.load("assets/sounds/zoom.mp3")
+zoomNoise:loop()
+zoomPlay = false
 
 step = {}
 
@@ -152,7 +155,35 @@ function update ()
 
 	if buttons.released.r then
 		if flashLightEnabled == 0 then flashLightEnabled = 1 else flashLightEnabled = 0 end
-		clickfx:play()
+		clickfx:play(4)
+	end
+	
+	if buttons.held.left or buttons.left or buttons.right or buttons.held.right then
+		
+		if not zoomPlay then
+			zoomNoise:play()
+			zoomPlay = true
+		end
+		
+		if buttons.held.left or buttons.left then
+			fovChange += 0.5
+		else
+			fovChange -= 0.5
+		end
+		
+		if fovChange < -45 then
+			fovChange = -45
+		end
+		
+		if fovChange > 0 then
+			fovChange = 0
+		end
+		
+		amg.perspective(75 + fovChange)
+		
+	else
+		zoomNoise:stop()
+		zoomPlay = false
 	end
 	
 	playerEye = {0, 0, -1}
@@ -200,7 +231,7 @@ function update ()
 	if buttons.analogx > 40 or buttons.analogx < -40 or buttons.analogy > 40 or buttons.analogy < -40 then
 		if not isWalking then
 			isWalking = true
-			step[math.random(1, 12)]:play()
+			step[math.random(1, 12)]:play(5)
 			stepTimer:reset(0)
 			stepTimer:start()
 		end
@@ -209,7 +240,7 @@ function update ()
 	end
 	
 	if isWalking and stepTimer:time() > stepTimeNeeded then
-		step[math.random(1, 12)]:play()
+		step[math.random(1, 12)]:play(5)
 		stepTimer:reset(0)
 		stepTimer:start()
 	end
