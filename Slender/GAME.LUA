@@ -33,6 +33,21 @@ stage3:loop()
 stage4 = sound.load("assets/sounds/stage4.mp3")
 stage4:loop()
 
+
+step = {}
+
+for i=1, 12 do
+	step[i] = sound.load("assets/sounds/step/step"..i..".mp3")
+end
+
+stepTimeNeeded = 800
+stepTimeCurrent = 0
+stepTimer = timer.new()
+stepTimer:reset(0)
+stepTimer:start()
+
+isWalking = false
+
 currentGameStage = 0
 changeStage = false
 
@@ -175,11 +190,30 @@ function update ()
 	if buttons.analogx > 40 or buttons.analogx < -40 then
 		playerPos[1] = playerPos[1] - math.sin(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
 		playerPos[3] = playerPos[3] - math.cos(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
+		
 	end
 	if buttons.analogy > 40 or buttons.analogy < -40 then
 		playerPos[1] = playerPos[1] - math.sin(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
 		playerPos[3] = playerPos[3] - math.cos(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
 	end
+	
+	if buttons.analogx > 40 or buttons.analogx < -40 or buttons.analogy > 40 or buttons.analogy < -40 then
+		if not isWalking then
+			isWalking = true
+			step[math.random(1, 12)]:play()
+			stepTimer:reset(0)
+			stepTimer:start()
+		end
+	else
+		isWalking = false
+	end
+	
+	if isWalking and stepTimer:time() > stepTimeNeeded then
+		step[math.random(1, 12)]:play()
+		stepTimer:reset(0)
+		stepTimer:start()
+	end
+		
 	
 	unitEye = {}
 	unitEye[1] = playerEye2[1]
