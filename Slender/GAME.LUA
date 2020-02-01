@@ -7,7 +7,7 @@ player = cam3d.new()
 cam3d.position(player,{180,180,180})
 
 playerRot = {0, 0, 0}
-playerPos = {0, 3.6, 0}
+playerPos = {0, 9, 0}
 playerUp = {0, 5, 0}
 
 model3d.initphysics(30)
@@ -16,6 +16,7 @@ Terrain = model3d.load("assets/model/plane.obj")
 model3d.setphysics(Terrain,1,{0,0,0},{0,0,0},0,__CONVEX)
 model3d.physics(Terrain)
 model3d.position(Terrain, 1, {0, 0, 0})
+Terrain:scaling(1, {2, 1, 2})
 
 ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
@@ -42,7 +43,7 @@ bgTimer:reset(0)
 bgTimer:start()
 
 amg.typelight(1,__DIRECTIONAL)
-amg.colorlight(1,color.new(12,12,24),color.new(10, 10, 14),color.new(12,12,24))
+amg.colorlight(1,color.new(6,6,12),color.new(5, 5, 7),color.new(6,6,12))
 amg.poslight(1,{0,3,0})
 
 amg.typelight(2, __POINT)
