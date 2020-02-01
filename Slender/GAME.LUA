@@ -86,6 +86,20 @@ deltaTimer = timer.new()
 deltaTimer:start()
 dt = 0
 
+scareNoise = sound.load("assets/sounds/crash.mp3")
+
+scareTimer = timer.new()
+scareTimer:reset(0)
+scareTimer:start()
+
+scareCooldown = 7500
+scareBuffLength = 3750
+scareBuff = 2.0
+scared = false
+
+scareEvent = false
+
+currentBuff = 1
 
 function render ()
 	buttons.read()
@@ -241,10 +255,10 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.0043
+	walkSpeed = 0.0043 * currentBuff
 	
 	if isSprinting then
-		walkSpeed = 0.0043 * 2.5
+		walkSpeed = 0.0043 * 2.5 * currentBuff
 	end
 	
 	if buttons.analogx > 40 or buttons.analogx < -40 then
@@ -315,7 +329,26 @@ function update ()
 		pant:stop()
 	end
 	
+	if not scareEvent and buttons.released.left then
+		scareEvent = true
+	end
 	
+	if not scared and scareTimer:time() > scareCooldown and scareEvent then
+		scareNoise:play(2)
+		scared = true
+		currentBuff = scareBuff
+		scareEvent = false
+		
+		scareTimer:reset(0)
+		scareTimer:start()
+		
+		stamina = stamina + 500
+	end
+	
+	if scared and scareTimer:time() > scareBuffLength then
+		scared = false
+		currentBuff = 1
+	end
 	
 	unitEye = {}
 	unitEye[1] = playerEye2[1]
