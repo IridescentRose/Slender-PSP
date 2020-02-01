@@ -96,9 +96,13 @@ function render ()
 	amg.mode2d(0)
 
 	amg.light(1, 1)
-	amg.light(2, flashLightEnabled)
-	amg.light(3, flashLightEnabled)
-	amg.light(4, flashLightEnabled)
+	
+	if bgTimer:time() < 945000 then 
+		amg.light(2, flashLightEnabled)
+		amg.light(3, flashLightEnabled)
+		amg.light(4, flashLightEnabled)
+	end
+	
 	model3d.render(Terrain)
 	amg.light(1, 0)
 	amg.light(2, 0)
