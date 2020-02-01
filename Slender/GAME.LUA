@@ -85,6 +85,8 @@ amg.poslight(4,{0,2,0})
 deltaTimer = timer.new()
 deltaTimer:start()
 dt = 0
+
+
 function render ()
 	buttons.read()
 	amg.begin()
@@ -97,6 +99,18 @@ function render ()
 
 	amg.light(1, 1)
 	
+	if currentGameStage == 1 then
+		amg.fog(0.8, 240, color.new(0, 0, 0, 255))
+	elseif currentGameStage == 2 then
+		amg.fog(0.8, 120, color.new(0, 0, 0, 255))
+	elseif currentGameStage == 3 then
+		amg.fog(0.8, 60, color.new(0, 0, 0, 255))
+	elseif currentGameStage == 4 then
+		amg.fog(0.8, 30, color.new(0, 0, 0, 255))
+	else
+		amg.fog(0.8, 480, color.new(0, 0, 0, 255))
+	end
+	
 	if bgTimer:time() < 945000 then 
 		amg.light(2, flashLightEnabled)
 		amg.light(3, flashLightEnabled)
@@ -108,6 +122,7 @@ function render ()
 	amg.light(2, 0)
 	amg.light(3, 0)
 	amg.light(4, 0)
+	amg.fog()
 	
 	--On screen stuff here!
 	amg.mode2d(1)
