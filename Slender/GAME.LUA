@@ -54,6 +54,12 @@ isWalking = false
 currentGameStage = 0
 changeStage = false
 
+isSprinting = false
+stamina = 2500
+isPanting = false
+pant = sound.load("assets/sounds/breath.mp3")
+pant:loop()
+
 
 flashLightEnabled = 1
 
@@ -161,7 +167,7 @@ function update ()
 	if buttons.held.left or buttons.left or buttons.right or buttons.held.right then
 		
 		if not zoomPlay then
-			zoomNoise:play()
+			zoomNoise:play(4)
 			zoomPlay = true
 		end
 		
@@ -218,6 +224,10 @@ function update ()
 	
 	walkSpeed = 0.0043
 	
+	if isSprinting then
+		walkSpeed = 0.0043 * 2.5
+	end
+	
 	if buttons.analogx > 40 or buttons.analogx < -40 then
 		playerPos[1] = playerPos[1] - math.sin(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
 		playerPos[3] = playerPos[3] - math.cos(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
@@ -239,12 +249,54 @@ function update ()
 		isWalking = false
 	end
 	
+	
+	if isSprinting then
+		stepTimeNeeded = 500
+	else
+		stepTimeNeeded = 800
+	end
+	
 	if isWalking and stepTimer:time() > stepTimeNeeded then
 		step[math.random(1, 12)]:play(5)
 		stepTimer:reset(0)
 		stepTimer:start()
 	end
+	
+	if buttons.released.start then
+		isSprinting = not isSprinting
+	end
+	
+	if isWalking then
+		if not isSprinting then
+			stamina = stamina + 2
+		end
+	else
+		stamina = stamina + 4
+	end
+	
+	if isSprinting then
+		stamina = stamina - 4
 		
+		if stamina < 500 and not isPanting then
+			isPanting = true
+			pant:play(2)
+		end
+		
+		if stamina < 0 then
+			stamina = 0
+			isSprinting = false
+		end
+	end
+	if stamina > 2500 then
+		stamina = 2500
+	end
+	
+	if stamina > 500 and isPanting then
+		isPanting = false
+		pant:stop()
+	end
+	
+	
 	
 	unitEye = {}
 	unitEye[1] = playerEye2[1]
