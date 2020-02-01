@@ -183,14 +183,14 @@ function update ()
 		clickfx:play(4)
 	end
 	
-	if buttons.held.left or buttons.left or buttons.right or buttons.held.right then
+	if buttons.held.up or buttons.up or buttons.down or buttons.held.down then
 		
 		if not zoomPlay then
 			zoomNoise:play(4)
 			zoomPlay = true
 		end
 		
-		if buttons.held.left or buttons.left then
+		if buttons.held.down or buttons.down then
 			fovChange += 0.5
 		else
 			fovChange -= 0.5
