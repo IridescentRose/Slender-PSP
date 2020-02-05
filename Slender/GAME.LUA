@@ -18,6 +18,16 @@ model3d.physics(Terrain)
 model3d.position(Terrain, 1, {0, 0, 0})
 Terrain:scaling(1, {2, 1, 2})
 
+Shed = model3d.load("assets/model/shed.obj")
+model3d.setphysics(Shed,1,{0,0,0},{0,0,0},0,__CONVEX)
+model3d.physics(Shed)
+model3d.position(Shed, 1, {-5, 7, -5})
+
+Silo = model3d.load("assets/model/silo.obj")
+model3d.setphysics(Silo,1,{0,0,0},{0,0,0},0,__CONVEX)
+model3d.physics(Silo)
+model3d.position(Silo, 1, {30, 2, 30})
+
 ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
 ambient:play(7)
@@ -132,10 +142,17 @@ function render ()
 	end
 	
 	model3d.render(Terrain)
-	amg.light(1, 0)
+	
+	
+	model3d.render(Shed, 2)
+	model3d.render(Silo, 2)
+	
 	amg.light(2, 0)
 	amg.light(3, 0)
 	amg.light(4, 0)
+	
+	
+	amg.light(1, 0)
 	amg.fog()
 	
 	--On screen stuff here!
