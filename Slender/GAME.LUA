@@ -67,8 +67,8 @@ changeStage = false
 isSprinting = false
 stamina = 2500
 isPanting = false
-pant = sound.load("assets/sounds/breath.mp3")
-pant:loop()
+--pant = sound.load("assets/sounds/breath.mp3")
+--pant:loop()
 
 
 flashLightEnabled = 1
@@ -96,7 +96,7 @@ deltaTimer = timer.new()
 deltaTimer:start()
 dt = 0
 
-scareNoise = sound.load("assets/sounds/crash.mp3")
+-- scareNoise = sound.load("assets/sounds/crash.mp3")
 
 scareTimer = timer.new()
 scareTimer:reset(0)
@@ -157,6 +157,10 @@ function render ()
 	
 	--On screen stuff here!
 	amg.mode2d(1)
+
+	ram = os.ram()
+	screen.print(0, 0, "RAM: "..ram)
+
 	amg.mode2d(0)
 
 	amg.update()
@@ -291,7 +295,7 @@ function update ()
 	if buttons.analogx > 40 or buttons.analogx < -40 or buttons.analogy > 40 or buttons.analogy < -40 then
 		if not isWalking then
 			isWalking = true
-			step[math.random(1, 12)]:play(5)
+			-- step[math.random(1, 12)]:play(5)
 			stepTimer:reset(0)
 			stepTimer:start()
 		end
@@ -307,7 +311,7 @@ function update ()
 	end
 	
 	if isWalking and stepTimer:time() > stepTimeNeeded then
-		step[math.random(1, 12)]:play(5)
+		-- step[math.random(1, 12)]:play(5)
 		stepTimer:reset(0)
 		stepTimer:start()
 	end
@@ -329,7 +333,7 @@ function update ()
 		
 		if stamina < 500 and not isPanting then
 			isPanting = true
-			pant:play(2)
+			-- pant:play(2)
 		end
 		
 		if stamina < 0 then
@@ -343,7 +347,7 @@ function update ()
 	
 	if stamina > 500 and isPanting then
 		isPanting = false
-		pant:stop()
+		-- pant:stop()
 	end
 	
 	if not scareEvent and buttons.released.left then
@@ -351,7 +355,7 @@ function update ()
 	end
 	
 	if not scared and scareTimer:time() > scareCooldown and scareEvent then
-		scareNoise:play(2)
+		-- scareNoise:play(2)
 		scared = true
 		currentBuff = scareBuff
 		scareEvent = false
