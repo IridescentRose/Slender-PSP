@@ -1,73 +1,26 @@
 amg.init()
 amg.quality(__8888)
 amg.renderstyle(__TRIANGLES)
-amg.perspective(75)
+amg.perspective(55)
 fovChange = 0
 player = cam3d.new()
 cam3d.position(player,{180,180,180})
 
 playerRot = {0, 0, 0}
-playerPos = {0, 9, 0}
+playerPos = {0, 36, -2000}
 playerUp = {0, 5, 0}
 
 model3d.initphysics(30)
 
-Terrain = model3d.load("assets/model/plane.obj")
-model3d.setphysics(Terrain,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Terrain)
-model3d.position(Terrain, 1, {0, 0, 0})
-Terrain:scaling(1, {2, 1, 2})
+Terrain = model3d.load("assets/model/map.obj")
 
-Shed = model3d.load("assets/model/shed.obj")
-model3d.setphysics(Shed,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Shed)
-model3d.position(Shed, 1, {-5, 7, -5})
+for i=1, 36 do
+	model3d.setphysics(Terrain,1,{0,0,0},{0,0,0},0,__CONVEX)
+	model3d.physics(Terrain)
+	model3d.position(Terrain, 1, {0, 0, 0})
+	Terrain:scaling(1, {2, 1, 2})
+end
 
-Silo = model3d.load("assets/model/silo.obj")
-model3d.setphysics(Silo,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Silo)
-model3d.position(Silo, 1, {30, 2, 30})
-
-Tanker = model3d.load("assets/model/tanker.obj")
-model3d.setphysics(Tanker,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Tanker)
-model3d.position(Tanker, 1, {-30, 2, 30})
-
-Log = model3d.load("assets/model/log.obj")
-model3d.setphysics(Log,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Log)
-model3d.position(Log, 1, {30, 2, 0})
-
-
-Tree = model3d.load("assets/model/tree.obj")
-model3d.setphysics(Tree,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Tree)
-model3d.position(Tree, 1, {-30, 2, 0})
-
-Tunnel = model3d.load("assets/model/tunnel.obj")
-model3d.setphysics(Tunnel,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Tunnel)
-model3d.position(Tunnel, 1, {-30, 2, 0})
-
-
-Rock = model3d.load("assets/model/rocks.obj")
-model3d.setphysics(Rock,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Rock)
-model3d.position(Rock, 1, {0, 2, 30})
-model3d.setphysics(Rock,2,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Rock)
-model3d.position(Rock, 2, {0, 2, 30})
-model3d.setphysics(Rock,3,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Rock)
-model3d.position(Rock, 3, {0, 2, 30})
-
-Cross = model3d.load("assets/model/cross.obj")
-model3d.setphysics(Cross,1,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Cross)
-model3d.position(Cross, 1, {60, 2, 60})
-model3d.setphysics(Cross,2,{0,0,0},{0,0,0},0,__CONVEX)
-model3d.physics(Cross)
-model3d.position(Cross, 2, {60, 2, 60})
 
 ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
@@ -162,47 +115,24 @@ function render ()
 	screen.clear(color.new(0, 0, 0, 255))
 	amg.mode2d(0)
 
-	amg.light(1, 1)
 	
 	if currentGameStage == 1 then
-		amg.fog(0.8, 240, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 2 then
-		amg.fog(0.8, 120, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 300, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 3 then
-		amg.fog(0.8, 60, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 240, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 4 then
-		amg.fog(0.8, 30, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 180, color.new(0, 0, 0, 255))
 	else
-		amg.fog(0.8, 480, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
 	end
 	
-	if bgTimer:time() < 945000 then 
-		amg.light(2, flashLightEnabled)
-		amg.light(3, flashLightEnabled)
-		amg.light(4, flashLightEnabled)
+	
+	for i=1,36 do
+		Terrain:render(2, i)
 	end
 	
-	model3d.render(Terrain)
-	
-	
-	model3d.render(Shed, 2)
-	model3d.render(Silo, 2)
-	model3d.render(Cross, 2)
-	model3d.render(Cross, 2, 2)
-	Log:render(2)
-	Rock:render(2, 1)
-	Rock:render(2, 2)
-	Rock:render(2, 3)
-	
-	Tanker:render(2)
-	Tree:render(2)
-	Tunnel:render(2)
-	amg.light(2, 0)
-	amg.light(3, 0)
-	amg.light(4, 0)
-	
-	
-	amg.light(1, 0)
 	amg.fog()
 	
 	--On screen stuff here!
@@ -326,10 +256,10 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.0043 * currentBuff
+	walkSpeed = 0.02 * currentBuff
 	
 	if isSprinting then
-		walkSpeed = 0.0043 * 2.5 * currentBuff
+		walkSpeed = walkSpeed * 2.5 
 	end
 	
 	if buttons.analogx > 40 or buttons.analogx < -40 then
