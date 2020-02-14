@@ -129,7 +129,7 @@ function render ()
 	end
 	
 	
-	for i=1,36 do
+	for i=1,165 do
 		Terrain:render(2, i)
 	end
 	
