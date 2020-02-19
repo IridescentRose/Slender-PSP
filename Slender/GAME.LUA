@@ -6,6 +6,45 @@ fovChange = 0
 player = cam3d.new()
 cam3d.position(player,{180,180,180})
 
+pageModelPositions = { {795, 52.681 ,-1432}}
+
+pages1 = model3d.load("assets/model/pages/page1.obj")
+pages2 = model3d.load("assets/model/pages/page2.obj")
+pages3 = model3d.load("assets/model/pages/page3.obj")
+pages4 = model3d.load("assets/model/pages/page4.obj")
+pages5 = model3d.load("assets/model/pages/page5.obj")
+pages6 = model3d.load("assets/model/pages/page6.obj")
+pages7 = model3d.load("assets/model/pages/page7.obj")
+pages8 = model3d.load("assets/model/pages/page8.obj")
+
+pages1:scaling(1, {6, 6, 6})
+pages1:rotation(1, {90, 0, 0})
+pages2:scaling(1, {6, 6, 6})
+pages2:rotation(1, {90, 0, 0})
+pages3:scaling(1, {6, 6, 6})
+pages3:rotation(1, {90, 0, 0})
+pages4:scaling(1, {6, 6, 6})
+pages4:rotation(1, {90, 0, 0})
+pages5:scaling(1, {6, 6, 6})
+pages5:rotation(1, {90, 0, 0})
+pages6:scaling(1, {6, 6, 6})
+pages6:rotation(1, {90, 0, 0})
+pages7:scaling(1, {6, 6, 6})
+pages7:rotation(1, {90, 0, 0})
+pages8:scaling(1, {6, 6, 6})
+pages8:rotation(1, {90, 0, 0})
+
+pages1:position(1, {-795, 34.681, -1433})
+pages2:position(1, {677, 34.681, -1514})
+pages3:position(1, {1507, 34.681, -1050})
+pages4:position(1, {-1627, 34.681, -660})
+pages5:position(1, {-706, 34.681, 482})
+pages6:position(1, {400, 34.681, -60})
+pages7:position(1, {-450, 34.681, -208})
+pages8:position(1, {-15, 34.681, 980})
+
+
+
 playerRot = {0, 0, 0}
 playerPos = {0, 36, -2000}
 playerUp = {0, 5, 0}
@@ -14,13 +53,10 @@ model3d.initphysics(30)
 
 Terrain = model3d.load("assets/model/map.obj")
 
-for i=1, 36 do
-	model3d.setphysics(Terrain,1,{0,0,0},{0,0,0},0,__CONVEX)
-	model3d.physics(Terrain)
-	model3d.position(Terrain, 1, {0, 0, 0})
-	Terrain:scaling(1, {2, 1, 2})
-end
-
+model3d.setphysics(Terrain,1,{0,0,0},{0,0,0},0,__CONVEX)
+model3d.physics(Terrain)
+model3d.position(Terrain, 1, {0, 0, 0})
+Terrain:scaling(1, {2, 1, 2})
 
 ambient = sound.load("assets/sounds/ambience.mp3")
 ambient:loop()
@@ -127,9 +163,20 @@ function render ()
 	else
 		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
 	end
+
+	for i=1,8 do
+		pages1:render(2,1)
+		pages2:render(2,1)
+		pages3:render(2,1)
+		pages4:render(2,1)
+		pages5:render(2,1)
+		pages6:render(2,1)
+		pages7:render(2,1)
+		pages8:render(2,1)
+	end
 	
 	
-	for i=1,165 do
+	for i=1,164 do
 		Terrain:render(2, i)
 	end
 	
@@ -141,6 +188,7 @@ function render ()
 	ram = os.ram()
 	screen.print(0, 0, "RAM: "..ram)
 
+	screen.print(0, 20, "POS: "..playerPos[1].." "..playerPos[3])
 	amg.mode2d(0)
 
 	amg.update()
@@ -256,22 +304,37 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.02 * currentBuff
+	walkSpeed = 0.02 * currentBuff * 10
 	
 	if isSprinting then
 		walkSpeed = walkSpeed * 2.5 
 	end
 	
+	newLocation = {0, 0, 0}
+	newLocation[1] = playerPos[1]
+	newLocation[3] = playerPos[3]
+
 	if buttons.analogx > 40 or buttons.analogx < -40 then
-		playerPos[1] = playerPos[1] - math.sin(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
-		playerPos[3] = playerPos[3] - math.cos(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
-		
+		newLocation[1] = playerPos[1] - math.sin(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
+		newLocation[3] = playerPos[3] - math.cos(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
 	end
 	if buttons.analogy > 40 or buttons.analogy < -40 then
-		playerPos[1] = playerPos[1] - math.sin(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
-		playerPos[3] = playerPos[3] - math.cos(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
+		newLocation[1] = playerPos[1] - math.sin(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
+		newLocation[3] = playerPos[3] - math.cos(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
 	end
 	
+	-- Test Location
+	locationTest = true
+
+	if newLocation[1] > 2000 or newLocation[1] < -2000 or newLocation[3] > 2000 or newLocation[3] < -2000 then
+		locationTest = false
+	end
+
+	if locationTest then
+		playerPos[1] = newLocation[1]
+		playerPos[3] = newLocation[3]
+	end
+
 	if buttons.analogx > 40 or buttons.analogx < -40 or buttons.analogy > 40 or buttons.analogy < -40 then
 		if not isWalking then
 			isWalking = true

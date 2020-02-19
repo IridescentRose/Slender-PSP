@@ -1,5 +1,5 @@
 # Blender MTL File: 'map.blend'
-# Material Count: 163
+# Material Count: 162
 
 newmtl Material.001
 Ns 225.000000
@@ -76,7 +76,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /tex/RockJagged0021Bump-sharedassets0.assets-104.png
+map_Kd C:\\tex\\RockJagged0021Bump-sharedassets0.assets-104.png
 
 newmtl Material.008
 Ns 225.000000
@@ -175,7 +175,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd /tex/RockJagged0021Bump-sharedassets0.assets-104.png
+map_Kd C:\\tex\\RockJagged0021Bump-sharedassets0.assets-104.png
 
 newmtl Material.017
 Ns 225.000000
@@ -408,39 +408,6 @@ d 1.000000
 illum 2
 map_Kd ../tex/Brick_Small_Brown-sharedassets0.assets-85.png
 
-newmtl Material.038
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd ../tex/diffuse-sharedassets0.assets-116.png
-
-newmtl Material.039
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd ../tex/diffuse-sharedassets0.assets-116.png
-
-newmtl Material.040
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd ../tex/diffuse-sharedassets0.assets-116.png
-
 newmtl Material.041
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
@@ -661,7 +628,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/Brick_Small_Brown-sharedassets0.assets-85.png
 
-newmtl Material.061
+newmtl Material.226
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -672,7 +639,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.062
+newmtl Material.227
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -683,7 +650,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.063
+newmtl Material.228
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -694,7 +661,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.064
+newmtl Material.229
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -705,7 +672,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.065
+newmtl Material.230
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -716,7 +683,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.066
+newmtl Material.231
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -727,7 +694,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.067
+newmtl Material.232
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -738,7 +705,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.068
+newmtl Material.233
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -749,7 +716,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.069
+newmtl Material.234
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -760,7 +727,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.070
+newmtl Material.235
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -771,7 +738,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.071
+newmtl Material.236
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -782,7 +749,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.073
+newmtl Material.237
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -793,7 +760,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.074
+newmtl Material.238
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -804,7 +771,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.075
+newmtl Material.239
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -815,7 +782,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.076
+newmtl Material.240
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -826,7 +793,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.077
+newmtl Material.241
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -837,7 +804,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.078
+newmtl Material.242
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -848,7 +815,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.079
+newmtl Material.243
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -859,7 +826,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.080
+newmtl Material.244
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -870,7 +837,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.081
+newmtl Material.245
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -881,7 +848,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.087
+newmtl Material.246
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -892,7 +859,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.090
+newmtl Material.248
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -903,7 +870,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.091
+newmtl Material.249
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -914,7 +881,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.093
+newmtl Material.250
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -925,7 +892,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.094
+newmtl Material.251
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -936,7 +903,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.095
+newmtl Material.252
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -947,7 +914,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.096
+newmtl Material.253
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -958,7 +925,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.097
+newmtl Material.254
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -969,7 +936,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.098
+newmtl Material.255
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -980,7 +947,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.099
+newmtl Material.256
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -991,7 +958,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.100
+newmtl Material.257
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1002,7 +969,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.101
+newmtl Material.258
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1013,7 +980,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.102
+newmtl Material.259
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1024,7 +991,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.104
+newmtl Material.260
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1035,7 +1002,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.105
+newmtl Material.261
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1046,7 +1013,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.115
+newmtl Material.262
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1057,7 +1024,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.116
+newmtl Material.263
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1068,7 +1035,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.117
+newmtl Material.264
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1079,7 +1046,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.118
+newmtl Material.265
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1090,7 +1057,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.119
+newmtl Material.266
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1101,7 +1068,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.120
+newmtl Material.267
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1112,7 +1079,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.121
+newmtl Material.268
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1123,7 +1090,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.123
+newmtl Material.269
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1134,7 +1101,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.124
+newmtl Material.270
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1145,7 +1112,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.125
+newmtl Material.271
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1156,7 +1123,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.126
+newmtl Material.272
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1167,7 +1134,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.127
+newmtl Material.273
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1178,7 +1145,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.128
+newmtl Material.274
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1189,7 +1156,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.129
+newmtl Material.275
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1200,7 +1167,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.136
+newmtl Material.276
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1211,7 +1178,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.137
+newmtl Material.277
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1220,9 +1187,31 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
+map_Kd ../tex/Brick_Small_Brown-sharedassets0.assets-85.png
+
+newmtl Material.278
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd ../tex/diffuse-sharedassets0.assets-116.png
+
+newmtl Material.279
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.138
+newmtl Material.280
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1233,7 +1222,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.139
+newmtl Material.281
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1244,7 +1233,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.140
+newmtl Material.282
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1255,7 +1244,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.141
+newmtl Material.283
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1266,7 +1255,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.142
+newmtl Material.284
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1277,7 +1266,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.143
+newmtl Material.285
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1288,7 +1277,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.145
+newmtl Material.286
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1299,7 +1288,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.146
+newmtl Material.287
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1310,7 +1299,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.148
+newmtl Material.289
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1321,7 +1310,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.149
+newmtl Material.290
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1332,7 +1321,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.150
+newmtl Material.291
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1343,7 +1332,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.151
+newmtl Material.292
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1354,7 +1343,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.157
+newmtl Material.293
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1365,7 +1354,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.159
+newmtl Material.294
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1376,7 +1365,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.160
+newmtl Material.297
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1387,7 +1376,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.162
+newmtl Material.298
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1398,7 +1387,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.163
+newmtl Material.299
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1409,7 +1398,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.166
+newmtl Material.300
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1420,7 +1409,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.167
+newmtl Material.301
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1431,7 +1420,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.168
+newmtl Material.302
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1442,7 +1431,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.171
+newmtl Material.303
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1453,7 +1442,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.175
+newmtl Material.304
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1464,7 +1453,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.178
+newmtl Material.305
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1475,7 +1464,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.181
+newmtl Material.306
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1486,7 +1475,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.182
+newmtl Material.307
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1497,7 +1486,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.183
+newmtl Material.308
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1508,7 +1497,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.185
+newmtl Material.309
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1519,7 +1508,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.186
+newmtl Material.310
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1530,7 +1519,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.187
+newmtl Material.311
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1541,7 +1530,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.188
+newmtl Material.312
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1552,7 +1541,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.189
+newmtl Material.313
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1563,7 +1552,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.190
+newmtl Material.314
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1574,7 +1563,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.191
+newmtl Material.315
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1585,7 +1574,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.192
+newmtl Material.316
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1596,7 +1585,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.193
+newmtl Material.317
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1607,7 +1596,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.194
+newmtl Material.318
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1618,7 +1607,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.195
+newmtl Material.319
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1629,7 +1618,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.196
+newmtl Material.320
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1640,7 +1629,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.197
+newmtl Material.321
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1651,7 +1640,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.198
+newmtl Material.322
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1662,7 +1651,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.200
+newmtl Material.323
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1673,7 +1662,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.205
+newmtl Material.324
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1684,7 +1673,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.207
+newmtl Material.325
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1695,7 +1684,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.208
+newmtl Material.326
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1706,7 +1695,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.209
+newmtl Material.327
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1717,7 +1706,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.210
+newmtl Material.328
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1728,7 +1717,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.214
+newmtl Material.329
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1739,7 +1728,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.215
+newmtl Material.330
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1750,7 +1739,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.216
+newmtl Material.331
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1761,7 +1750,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.220
+newmtl Material.332
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1772,7 +1761,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.221
+newmtl Material.333
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -1783,7 +1772,7 @@ d 1.000000
 illum 2
 map_Kd ../tex/diffuse-sharedassets0.assets-116.png
 
-newmtl Material.225
+newmtl Material.334
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
