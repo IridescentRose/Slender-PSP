@@ -6,6 +6,10 @@ fovChange = 0
 player = cam3d.new()
 cam3d.position(player,{180,180,180})
 
+slendy = model3d.load("assets/model/slendy.obj")
+slendy:scaling(1, {10, 10, 10})
+slendy:position(1, {-50000, -20, -50000})
+
 pageModelPositions = { {795, 52.681 ,-1432}}
 
 pages1 = model3d.load("assets/model/pages/page1.obj")
@@ -158,6 +162,11 @@ currentBuff = 1
 
 won = false
 
+slenderTPTimer = timer.new()
+slenderTPTimer:reset(0)
+
+slenderTPRemaining = 5000
+
 function render ()
 	buttons.read()
 	amg.begin()
@@ -172,11 +181,11 @@ function render ()
 	if currentGameStage == 1 then
 		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 2 then
-		amg.fog(0.8, 300, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 320, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 3 then
-		amg.fog(0.8, 240, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 280, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 4 then
-		amg.fog(0.8, 180, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 240, color.new(0, 0, 0, 255))
 	else
 		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
 	end
@@ -196,6 +205,8 @@ function render ()
 	for i=1,164 do
 		Terrain:render(2, i)
 	end
+	
+	slendy:render(2, 1)
 	
 	amg.fog()
 	
@@ -253,6 +264,28 @@ function locationTestCheck(location, center, boundX, boundZ)
 end
 
 function update ()
+
+	slenderTPDistance = 1000
+	if currentGameStage == 2 then
+		slenderTPDistance = 700
+	elseif currentGameStage == 3 then
+		slenderTPDistance = 500
+	elseif currentGameStage == 4 then
+		slenderTPDistance = 300
+	end
+	
+	if slenderTPTimer:time() >= slenderTPRemaining then
+		-- TP to random location in radius
+		slenderTPRemaining = math.random(8000, 15000)
+		
+		slenderTPX = math.random(-slenderTPDistance, slenderTPDistance)
+		slenderTPZ = math.random(-slenderTPDistance, slenderTPDistance)
+		
+		slendy:position(1, {slenderTPX + playerPos[1], -20, slenderTPZ + playerPos[3]})
+		
+		slenderTPTimer:reset(0)
+		slenderTPTimer:start()
+	end
 	
 	if not page1collect then
 		-- CHECK
@@ -382,6 +415,8 @@ function update ()
 		if currentGameStage == 2 then stage2:play(6) end
 		if currentGameStage == 3 then stage3:play(6) end
 		if currentGameStage == 4 then stage4:play(6) end
+		
+		slenderTPTimer:start()
 		changeStage = false
 	end
 
