@@ -41,9 +41,20 @@ pages4:position(1, {-1627, 34.681, -660})
 pages5:position(1, {-706, 34.681, 482})
 pages6:position(1, {400, 34.681, -60})
 pages7:position(1, {-450, 34.681, -208})
-pages8:position(1, {-15, 34.681, 980})
+pages8:position(1, {-15, 34.681, 980})   
 
+page1collect = false
+page2collect = false
+page3collect = false
+page4collect = false
+page5collect = false
+page6collect = false
+page7collect = false
+page8collect = false
 
+pagesCollected = 0
+pageCollectEvent = true
+pageCollectTime = 3000
 
 playerRot = {0, 0, 0}
 playerPos = {0, 36, -2000}
@@ -132,6 +143,10 @@ scareTimer = timer.new()
 scareTimer:reset(0)
 scareTimer:start()
 
+pageTimer = timer.new()
+pageTimer:reset(0)
+pageTimer:start()
+
 scareCooldown = 7500
 scareBuffLength = 3750
 scareBuff = 2.0
@@ -140,6 +155,8 @@ scared = false
 scareEvent = false
 
 currentBuff = 1
+
+won = false
 
 function render ()
 	buttons.read()
@@ -165,14 +182,14 @@ function render ()
 	end
 
 	for i=1,8 do
-		pages1:render(2,1)
-		pages2:render(2,1)
-		pages3:render(2,1)
-		pages4:render(2,1)
-		pages5:render(2,1)
-		pages6:render(2,1)
-		pages7:render(2,1)
-		pages8:render(2,1)
+		if not page1collect then pages1:render(2,1) end
+		if not page2collect then pages2:render(2,1) end
+		if not page3collect then pages3:render(2,1) end
+		if not page4collect then pages4:render(2,1) end
+		if not page5collect then pages5:render(2,1) end
+		if not page6collect then pages6:render(2,1) end
+		if not page7collect then pages7:render(2,1) end
+		if not page8collect then pages8:render(2,1) end
 	end
 	
 	
@@ -184,11 +201,42 @@ function render ()
 	
 	--On screen stuff here!
 	amg.mode2d(1)
+	
+	--screen.print(0, 20, "POS: "..playerPos[1].." "..playerPos[3])
 
-	ram = os.ram()
-	screen.print(0, 0, "RAM: "..ram)
+	if pageCollectEvent then
+	
+		if pageTimer:time() < pageCollectTime then
+			if pagesCollected == 0 then
+				screen.print(240, 136, "Collect all 8 pages", 1, white, gray, __ACENTER)
+			else
+				screen.print(240, 136, pagesCollected.."/8 pages collected", 1, white, gray, __ACENTER)
+			end
+		else
+			pageCollectEvent = false
+			pageTimer:reset(0)
+			
+			if pagesCollected == 1 then
+				changeStage = true
+				currentGameStage = 1
+			elseif pagesCollected == 3 then
+				changeStage = true
+				currentGameStage = 2
+			elseif pagesCollected == 5 then
+				changeStage = true
+				currentGameStage = 3
+			elseif pagesCollected == 7 then
+				changeStage = true
+				currentGameStage = 4
+			end
+			
+			if pagesCollected == 8 then
+				won = true
+			end
+			
+		end
+	end
 
-	screen.print(0, 20, "POS: "..playerPos[1].." "..playerPos[3])
 	amg.mode2d(0)
 
 	amg.update()
@@ -205,6 +253,115 @@ function locationTestCheck(location, center, boundX, boundZ)
 end
 
 function update ()
+	
+	if not page1collect then
+		-- CHECK
+		pos = {-795, -1433}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page1collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	if not page2collect then
+		-- CHECK
+		pos = {677, -1514}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page2collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	
+	if not page3collect then
+		-- CHECK
+		pos = {1507, -1050}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page3collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	if not page4collect then
+		-- CHECK
+		pos = {-1627, -660}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page4collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	
+	 
+	
+	if not page5collect then
+		-- CHECK
+		pos = {-706, 482}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page5collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	if not page6collect then
+		-- CHECK
+		pos = {400, -60}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page6collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	if not page7collect then
+		-- CHECK
+		pos = {-450, -208}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page7collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
+	if not page8collect then
+		-- CHECK
+		pos = {-15, 980}
+		check = true
+		check = locationTestCheck(playerPos, pos, 75, 75)
+		
+		if not check then
+			page8collect = true
+			pageTimer:start()
+			pageCollectEvent = true
+			pagesCollected = pagesCollected + 1
+		end
+	end
 
 	if bgTimer:time() >= 300000 and bgTimer:time() < 600000 and currentGameStage == 0 then
 		currentGameStage = 1
@@ -633,6 +790,12 @@ while true do
 	dt = deltaTimer:time()
 	deltaTimer:reset(0)
 	deltaTimer:start()
+	
+	if won then
+		--End anim
+		os.exit()
+	end
+	
 end
 
 amg.finish()
