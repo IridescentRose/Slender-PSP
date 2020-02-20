@@ -196,6 +196,14 @@ function render ()
 	screen.flip()
 end
 
+function locationTestCheck(location, center, boundX, boundZ)
+	if location[1] >= (center[1] - (boundX / 2)) and location[1] < (center[1] + (boundX / 2)) and location[3] >= (center[2] - (boundZ / 2)) and (location[3] < center[2] + (boundZ / 2)) then
+		return false
+	else
+		return true
+	end
+end
+
 function update ()
 
 	if bgTimer:time() >= 300000 and bgTimer:time() < 600000 and currentGameStage == 0 then
@@ -221,16 +229,16 @@ function update ()
 	end
 
 	if buttons.cross or buttons.held.cross then
-		playerRot[1] = playerRot[1] - 1
+		playerRot[1] = playerRot[1] - 0.1 * dt
 	end
 	if buttons.square or buttons.held.square then
-		playerRot[2] = playerRot[2] + 1
+		playerRot[2] = playerRot[2] + 0.1 * dt
 	end
 	if buttons.circle or buttons.held.circle then
-		playerRot[2] = playerRot[2] - 1
+		playerRot[2] = playerRot[2] - 0.1 * dt
 	end
 	if buttons.triangle or buttons.held.triangle then
-		playerRot[1] = playerRot[1] + 1
+		playerRot[1] = playerRot[1] + 0.1 * dt
 	end
 	
 	if playerRot[1] < -89 then
@@ -304,7 +312,7 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.02 * currentBuff * 10
+	walkSpeed = 0.02 * currentBuff * 2
 	
 	if isSprinting then
 		walkSpeed = walkSpeed * 2.5 
@@ -329,12 +337,179 @@ function update ()
 	if newLocation[1] > 2000 or newLocation[1] < -2000 or newLocation[3] > 2000 or newLocation[3] < -2000 then
 		locationTest = false
 	end
-
+	
+	
+	-- Q1
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { 380, -1770 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 580, -1880 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 790, -2000 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1090, -1910 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1160, -1590 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1400, -1650 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1390, -1840 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1410, -1470 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1610, -1430 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1850, -1430 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1910, -1780 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1690, -1750 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1760, -1970 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1910, -1190 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1780, -1000 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1964, -630 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1770, -80 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 920, -850 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 710, -880 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 705, -1055 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 463, -993 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 30, -990 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 210, -860 }, 32, 32)
+	
+	--Q2
+	locationTest = locationTest and locationTestCheck(newLocation, { 1700, 130 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1890, 1290 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1900, 1680 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1540, 1810 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1680, 1530 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1780, 970 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1830, 480 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1230, 420 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1330, 230 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1400, 1550 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1620, 1310 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 910, 1550 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 830, 1770 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1150, 1710 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 600, 1600 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 230, 1760 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 230, 1760 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 300, 1560 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 880, 960 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1020, 680 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 740, 690 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 960, 470 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 580, 470 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 670, 240 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1020, 240 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 0, 240 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 0, 1600 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 120, 600 }, 32, 32)
+	
+	--Q3
+	locationTest = locationTest and locationTestCheck(newLocation, { -80, 540 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -60, 760 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -260, 380 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -330, 690 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -330, 920 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -500, 440 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -710, 230 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -750, 1540 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -680, 1820 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -480, 1710 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -980, 1735 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1290, 1670 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1580, 1580 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1740, 1337 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1810, 1620 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1660, 1800 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1860, 920 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1860, 690 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1600, 760 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1630, 530 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1780, 370 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1740, 100 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1540, 230 }, 32, 32)
+	
+	--Q4
+	locationTest = locationTest and locationTestCheck(newLocation, { -1450, -40 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1890, -65 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1890, -365 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1650, -200 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1900, -770 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1900, -1075 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1440, -920 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -780, -850 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -540, -990 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -290, -1060 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -290, -880 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -60, -850 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1800, -1850 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1040, -1880 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -720, -1940 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -810, -1730 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1290, -1730 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1570, -1730 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -500, -1770 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1510, -1490 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1510, -1280 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1790, -1560 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { -1680, -1150 }, 32, 32)
+	
+	-- LANDMARKS
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { 680, -1540 }, 48, 48) -- Big tree
+	locationTest = locationTest and locationTestCheck(newLocation, { 1505, -1110 }, 64, 128) -- Shed
+	locationTest = locationTest and locationTestCheck(newLocation, { 1730, -650 }, 80, 170) -- Cybertruck #1
+	locationTest = locationTest and locationTestCheck(newLocation, { -710, 500 }, 16, 16) -- LOGS
+	locationTest = locationTest and locationTestCheck(newLocation, { -557, 575 }, 16, 16) -- LOGS
+	locationTest = locationTest and locationTestCheck(newLocation, { -640, 770 }, 16, 16) -- LOGS
+	locationTest = locationTest and locationTestCheck(newLocation, { -790, 690 }, 16, 16) -- LOGS
+	locationTest = locationTest and locationTestCheck(newLocation, { -915, 860 }, 16, 16) -- LOGS
+	locationTest = locationTest and locationTestCheck(newLocation, { -765, 940 }, 16, 16) -- LOGS
+	
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { -1440, 1190 }, 8, 160) -- CROSS
+	locationTest = locationTest and locationTestCheck(newLocation, { -1440, 1190 }, 160, 8) -- CROSS
+	
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { -1610, 530 }, 100, 100) -- ROCKS
+	locationTest = locationTest and locationTestCheck(newLocation, { -800, 1350 }, 90, 90) -- SILO
+	
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, 550 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, 370 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, 210 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, 30 }, 150, 50) -- tanker
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, 550 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, 370 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, 210 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, 30 }, 150, 50) -- tanker
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { -460, 50 }, 50, 150) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -460, 500 }, 50, 150) -- tanker
+	
+	--Bathrooms!
+	locationTest = locationTest and locationTestCheck(newLocation, { 980, -450 }, 7, 105) -- Wall type 1
+	locationTest = locationTest and locationTestCheck(newLocation, { 760, -450 }, 7, 105) -- Wall type 1
+	locationTest = locationTest and locationTestCheck(newLocation, { 600, -450 }, 7, 105) -- Wall type 1
+	locationTest = locationTest and locationTestCheck(newLocation, { 330, -450 }, 7, 105) -- Wall type 1
+	locationTest = locationTest and locationTestCheck(newLocation, { 340, -130 }, 7, 105) -- Wall type 1
+	locationTest = locationTest and locationTestCheck(newLocation, { 720, -130 }, 7, 105) -- Wall type 1
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { 480, -175 }, 7, 70) -- Wall type 2
+	locationTest = locationTest and locationTestCheck(newLocation, { 845, -175 }, 7, 70) -- Wall type 2
+	locationTest = locationTest and locationTestCheck(newLocation, { 840, -410 }, 7, 70) -- Wall type 2
+	locationTest = locationTest and locationTestCheck(newLocation, { 470, -410 }, 7, 70) -- Wall type 2
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { 410, -560 }, 70, 7) -- Wall type 3
+	locationTest = locationTest and locationTestCheck(newLocation, { 410, -340 }, 70, 7) -- Wall type 3
+	locationTest = locationTest and locationTestCheck(newLocation, { 410, -250 }, 70, 7) -- Wall type 3
+	locationTest = locationTest and locationTestCheck(newLocation, { 915, -250 }, 70, 7) -- Wall type 3
+	locationTest = locationTest and locationTestCheck(newLocation, { 910, -340 }, 70, 7) -- Wall type 3
+	locationTest = locationTest and locationTestCheck(newLocation, { 910, -30 }, 70, 7) -- Wall type 3
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { 640, -245 }, 80, 7) -- Wall type 4
+	locationTest = locationTest and locationTestCheck(newLocation, { 680, -340 }, 80, 7) -- Wall type 4
+	
+	locationTest = locationTest and locationTestCheck(newLocation, { 450, -35 }, 110, 7) -- Wall type 5
+	locationTest = locationTest and locationTestCheck(newLocation, { 870, -560 }, 110, 7) -- Wall type 5
+	
 	if locationTest then
 		playerPos[1] = newLocation[1]
 		playerPos[3] = newLocation[3]
 	end
-
+	
 	if buttons.analogx > 40 or buttons.analogx < -40 or buttons.analogy > 40 or buttons.analogy < -40 then
 		if not isWalking then
 			isWalking = true
