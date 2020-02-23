@@ -1,7 +1,7 @@
 amg.init()
-amg.quality(__8888)
+amg.quality(__4444)
 amg.renderstyle(__TRIANGLES)
-amg.perspective(55)
+amg.perspective(45)
 fovChange = 0
 player = cam3d.new()
 cam3d.position(player,{180,180,180})
