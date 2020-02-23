@@ -181,8 +181,14 @@ staticImage = image.load("assets/tex/tv_static_by_tbh_1138_d3jmbjq-sharedassets0
 staticImage:center()
 staticImage:scale(300)
 
-static = sound.load("assets/sounds/static2.mp3")
-deathSound = sound.load("assets/sounds/static3.mp3")
+if not meme then
+	static = sound.load("assets/sounds/static2.mp3")
+	deathSound = sound.load("assets/sounds/static3.mp3")
+else
+	static = sound.load("assets/sounds/meme.mp3")
+	deathSound = sound.load("assets/sounds/meme.mp3")
+end
+
 deathSound:loop()
 function render ()
 	buttons.read()

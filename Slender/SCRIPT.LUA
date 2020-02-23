@@ -22,6 +22,8 @@ end
 bgTimer = timer.new()
 bgTimer:start()
 
+meme = false
+
 math.randomseed(os.time())
 
 timeToNextImg = math.random(2000, 4000)
@@ -87,6 +89,10 @@ while true do
 		else
 			os.exit()
 		end
+	end
+
+	if buttons.released.triangle then
+		meme = true
 	end
 	
 	-- Background effect
