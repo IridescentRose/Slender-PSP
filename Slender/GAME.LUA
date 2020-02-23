@@ -9,6 +9,7 @@ cam3d.position(player,{180,180,180})
 slendy = model3d.load("assets/model/slendy.obj")
 slendy:scaling(1, {10, 10, 10})
 slendy:position(1, {-50000, -20, -50000})
+slendPos = {-50000, -20, -50000}
 
 pageModelPositions = { {795, 52.681 ,-1432}}
 
@@ -55,6 +56,10 @@ page5collect = false
 page6collect = false
 page7collect = false
 page8collect = false
+
+endAnim = false
+
+
 
 pagesCollected = 0
 pageCollectEvent = true
@@ -112,8 +117,8 @@ changeStage = false
 isSprinting = false
 stamina = 2500
 isPanting = false
---pant = sound.load("assets/sounds/breath.mp3")
---pant:loop()
+pant = sound.load("assets/sounds/breath.mp3")
+pant:loop()
 
 
 flashLightEnabled = 1
@@ -141,7 +146,7 @@ deltaTimer = timer.new()
 deltaTimer:start()
 dt = 0
 
--- scareNoise = sound.load("assets/sounds/crash.mp3")
+scareNoise = sound.load("assets/sounds/crash.mp3")
 
 scareTimer = timer.new()
 scareTimer:reset(0)
@@ -164,9 +169,21 @@ won = false
 
 slenderTPTimer = timer.new()
 slenderTPTimer:reset(0)
+deathTimer = timer.new()
+deathTimer:reset(0)
 
 slenderTPRemaining = 5000
 
+
+sanity = 100.0
+
+staticImage = image.load("assets/tex/tv_static_by_tbh_1138_d3jmbjq-sharedassets0.assets-69.png")
+staticImage:center()
+staticImage:scale(300)
+
+static = sound.load("assets/sounds/static2.mp3")
+deathSound = sound.load("assets/sounds/static3.mp3")
+deathSound:loop()
 function render ()
 	buttons.read()
 	amg.begin()
@@ -179,13 +196,13 @@ function render ()
 
 	
 	if currentGameStage == 1 then
-		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 400, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 2 then
-		amg.fog(0.8, 320, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 370, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 3 then
-		amg.fog(0.8, 280, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 340, color.new(0, 0, 0, 255))
 	elseif currentGameStage == 4 then
-		amg.fog(0.8, 240, color.new(0, 0, 0, 255))
+		amg.fog(0.8, 310, color.new(0, 0, 0, 255))
 	else
 		amg.fog(0.8, 360, color.new(0, 0, 0, 255))
 	end
@@ -212,6 +229,25 @@ function render ()
 	
 	--On screen stuff here!
 	amg.mode2d(1)
+	
+	
+	if sanity < 100 then
+		-- Draw static
+		math.randomseed(bgTimer:time())
+		staticImage:blit(240, math.random(100, 172), 192 * (100.0 - sanity) / 100.0)
+		math.randomseed(bgTimer:time())
+		staticImage:blit(240, math.random(100, 172), 192 * (100.0 - sanity) / 100.0)
+		math.randomseed(bgTimer:time())
+		staticImage:blit(240, math.random(100, 172), 192 * (100.0 - sanity) / 100.0)
+		
+		math.randomseed(bgTimer:time())
+		num = math.random(0, 2)
+		if num == 0 then
+			staticImage:fliph()
+		else
+			staticImage:flipv()
+		end
+	end
 	
 	--screen.print(0, 20, "POS: "..playerPos[1].." "..playerPos[3])
 
@@ -264,6 +300,11 @@ function locationTestCheck(location, center, boundX, boundZ)
 end
 
 function update ()
+	if not won then
+	if sanity <= 0 then
+		won = true
+	end
+	
 
 	slenderTPDistance = 1000
 	if currentGameStage == 2 then
@@ -282,6 +323,8 @@ function update ()
 		slenderTPZ = math.random(-slenderTPDistance, slenderTPDistance)
 		
 		slendy:position(1, {slenderTPX + playerPos[1], -20, slenderTPZ + playerPos[3]})
+		slendPos = {slenderTPX + playerPos[1], -20, slenderTPZ + playerPos[3]}
+		
 		
 		slenderTPTimer:reset(0)
 		slenderTPTimer:start()
@@ -504,7 +547,7 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.02 * currentBuff * 2
+	walkSpeed = 0.02 * currentBuff * 1.3
 	
 	if isSprinting then
 		walkSpeed = walkSpeed * 2.5 
@@ -705,7 +748,7 @@ function update ()
 	if buttons.analogx > 40 or buttons.analogx < -40 or buttons.analogy > 40 or buttons.analogy < -40 then
 		if not isWalking then
 			isWalking = true
-			-- step[math.random(1, 12)]:play(5)
+			step[math.random(1, 12)]:play(5)
 			stepTimer:reset(0)
 			stepTimer:start()
 		end
@@ -721,7 +764,7 @@ function update ()
 	end
 	
 	if isWalking and stepTimer:time() > stepTimeNeeded then
-		-- step[math.random(1, 12)]:play(5)
+		step[math.random(1, 12)]:play(5)
 		stepTimer:reset(0)
 		stepTimer:start()
 	end
@@ -743,7 +786,7 @@ function update ()
 		
 		if stamina < 500 and not isPanting then
 			isPanting = true
-			-- pant:play(2)
+			pant:play(2)
 		end
 		
 		if stamina < 0 then
@@ -757,15 +800,17 @@ function update ()
 	
 	if stamina > 500 and isPanting then
 		isPanting = false
-		-- pant:stop()
+		pant:stop()
 	end
 	
-	if not scareEvent and buttons.released.left then
+	if not scareEvent and sanity < 80.0 and sanity > 70.0 then
 		scareEvent = true
+	else
+		scareEvent = false
 	end
 	
 	if not scared and scareTimer:time() > scareCooldown and scareEvent then
-		-- scareNoise:play(2)
+		scareNoise:play(1)
 		scared = true
 		currentBuff = scareBuff
 		scareEvent = false
@@ -816,6 +861,42 @@ function update ()
 
 	cam3d.eye(player, playerEye)
 	cam3d.up(player, playerUp)
+	
+	if sanity < 100.0 and not static:playing() then
+		static:play(2)
+	elseif sanity == 100.0 then
+		static:stop()
+	end
+	
+	static:vol(100 - sanity)
+	
+	sanity += 0.01 * dt
+	
+	if sanity > 100 then
+		sanity = 100
+	end
+	
+	if math.abs(slendPos[1] - playerPos[1]) < 300 and math.abs(slendPos[3] - playerPos[3]) < 300 then
+		sanity -= 0.016 * dt
+		if math.abs(slendPos[1] - playerPos[1]) < 50 and math.abs(slendPos[3] - playerPos[3]) < 50 then
+			won = true
+		end
+	end
+	
+	end
+	
+	if won and not deathSound:playing() then
+		sanity = 0
+		static:stop()
+		os.delay(100)
+		deathSound:play(2)
+		deathSound:vol(100)
+		deathTimer:start()
+	end
+	
+	if deathTimer:time() >= 4000 then
+		endAnim = true
+	end
 end
 
 while true do
@@ -826,8 +907,7 @@ while true do
 	deltaTimer:reset(0)
 	deltaTimer:start()
 	
-	if won then
-		--End anim
+	if won and endAnim then
 		os.exit()
 	end
 	
