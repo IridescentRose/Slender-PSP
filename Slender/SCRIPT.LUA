@@ -12,6 +12,13 @@ pages = {image.load("./assets/pages/page1.png")
 ,image.load("./assets/pages/page8.png")
 }
 
+pant = sound.load("assets/sounds/breath.mp3")
+pant:loop()
+
+staticImage = image.load("assets/tex/tv_static_by_tbh_1138_d3jmbjq-sharedassets0.assets-69.png")
+staticImage:center()
+staticImage:scale(300)
+
 titlePage = image.load("./assets/title.png")
 
 for i=1,8 do
@@ -23,6 +30,25 @@ bgTimer = timer.new()
 bgTimer:start()
 
 meme = false
+
+if not meme then
+	static = sound.load("assets/sounds/static2.mp3")
+	deathSound = sound.load("assets/sounds/static3.mp3")
+else
+	static = sound.load("assets/sounds/meme.mp3")
+	deathSound = sound.load("assets/sounds/meme.mp3")
+end
+deathSound:loop()
+
+
+stage1 = sound.load("assets/sounds/stage1.mp3")
+stage1:loop()
+stage2 = sound.load("assets/sounds/stage2.mp3")
+stage2:loop()
+stage3 = sound.load("assets/sounds/stage3.mp3")
+stage3:loop()
+stage4 = sound.load("assets/sounds/stage4.mp3")
+stage4:loop()
 
 math.randomseed(os.time())
 
@@ -49,7 +75,6 @@ menu = sound.load("assets/sounds/menu.mp3")
 menu:loop()
 menu:play()
 
-button = sound.load("assets/sounds/flashlight.mp3")
 
 while true do
 	buttons.read()
@@ -60,23 +85,23 @@ while true do
 	
 	if buttons.released.up then 
 		selection = selection - 1  
-		button:play()
+		--button:play()
 	end
 	
 	if buttons.released.down then 
 		selection = selection + 1 
-		button:play()
+		--button:play()
 	end
 	
 	if selection < 0 then selection = 0 end
 	if selection > 2 then selection = 2 end
 	
 	if buttons.released.cross then
-		button:play()
+		--button:play()
 		if selection == 0 then
 			menu:stop()
 			
-			--dofile("INTRO.LUA")
+			dofile("INTRO.LUA")
 			dofile("GAME.LUA")
 			
 			menu:play()

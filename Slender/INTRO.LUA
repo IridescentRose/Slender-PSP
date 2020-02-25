@@ -1,5 +1,4 @@
-introA = sound.load("assets/sounds/intro.mp3")
-introA:play()
+stage1:play()
 
 bgTimer:reset(0)
 bgTimer:start()
@@ -33,4 +32,4 @@ while true do
 	screen.flip()
 end
 
-introA:stop()
+stage1:stop()
