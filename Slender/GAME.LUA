@@ -501,7 +501,7 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.02 * currentBuff * 1.3 * 5
+	walkSpeed = 0.02 * currentBuff * 1.3
 	
 	if isSprinting then
 		walkSpeed = walkSpeed * 2.5 
