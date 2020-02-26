@@ -175,7 +175,7 @@ function render ()
 	end
 	
 	
-	for i=1,164 do
+	for i=1,132 do
 		Terrain:render(2, i)
 	end
 	
@@ -248,7 +248,7 @@ function render ()
 end
 
 function locationTestCheck(location, center, boundX, boundZ)
-	if location[1] >= (center[1] - (boundX / 2)) and location[1] < (center[1] + (boundX / 2)) and location[3] >= (center[2] - (boundZ / 2)) and (location[3] < center[2] + (boundZ / 2)) then
+	if location[1] >= (center[1] - (boundX)) and location[1] < (center[1] + (boundX)) and location[3] >= (center[2] - (boundZ)) and (location[3] < center[2] + (boundZ)) then
 		return false
 	else
 		return true
@@ -276,7 +276,17 @@ function update ()
 		slenderTPRemaining = math.random(8000, 15000)
 		
 		slenderTPX = math.random(-slenderTPDistance, slenderTPDistance)
+		
+		if math.abs(slenderTPX) < 50 then
+			slenderTPX = slenderTPX * 4
+		end
+		
 		slenderTPZ = math.random(-slenderTPDistance, slenderTPDistance)
+		
+		
+		if math.abs(slenderTPZ) < 50 then
+			slenderTPZ = slenderTPZ * 4
+		end
 		
 		slendy:position(1, {slenderTPX + playerPos[1], -20, slenderTPZ + playerPos[3]})
 		slendPos = {slenderTPX + playerPos[1], -20, slenderTPZ + playerPos[3]}
@@ -491,7 +501,7 @@ function update ()
 	playerEye2[3] += ((1 - cosTheta) * y * z + x * sinTheta)	* playerEye[2];
 	playerEye2[3] += (cosTheta + (1 - cosTheta) * z * z)		* playerEye[3];
 	
-	walkSpeed = 0.02 * currentBuff * 1.3
+	walkSpeed = 0.02 * currentBuff * 1.3 * 5
 	
 	if isSprinting then
 		walkSpeed = walkSpeed * 2.5 
@@ -502,12 +512,12 @@ function update ()
 	newLocation[3] = playerPos[3]
 
 	if buttons.analogx > 40 or buttons.analogx < -40 then
-		newLocation[1] = playerPos[1] - math.sin(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
-		newLocation[3] = playerPos[3] - math.cos(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
+		newLocation[1] = newLocation[1] - math.sin(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
+		newLocation[3] = newLocation[3] - math.cos(math.rad(playerRot[2] - 270)) * walkSpeed * dt * buttons.analogx / 128
 	end
 	if buttons.analogy > 40 or buttons.analogy < -40 then
-		newLocation[1] = playerPos[1] - math.sin(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
-		newLocation[3] = playerPos[3] - math.cos(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
+		newLocation[1] = newLocation[1] - math.sin(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
+		newLocation[3] = newLocation[3] - math.cos(math.rad(playerRot[2])) * walkSpeed * dt * buttons.analogy / 128
 	end
 	
 	-- Test Location
@@ -535,7 +545,7 @@ function update ()
 	locationTest = locationTest and locationTestCheck(newLocation, { 1760, -1970 }, 32, 32)
 	locationTest = locationTest and locationTestCheck(newLocation, { 1910, -1190 }, 32, 32)
 	locationTest = locationTest and locationTestCheck(newLocation, { 1780, -1000 }, 32, 32)
-	locationTest = locationTest and locationTestCheck(newLocation, { 1964, -630 }, 32, 32)
+	locationTest = locationTest and locationTestCheck(newLocation, { 1932, -630 }, 32, 32)
 	locationTest = locationTest and locationTestCheck(newLocation, { 1770, -80 }, 32, 32)
 	locationTest = locationTest and locationTestCheck(newLocation, { 920, -850 }, 32, 32)
 	locationTest = locationTest and locationTestCheck(newLocation, { 710, -880 }, 32, 32)
@@ -626,39 +636,39 @@ function update ()
 	
 	-- LANDMARKS
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { 680, -1540 }, 48, 48) -- Big tree
-	locationTest = locationTest and locationTestCheck(newLocation, { 1505, -1110 }, 64, 128) -- Shed
-	locationTest = locationTest and locationTestCheck(newLocation, { 1730, -650 }, 80, 170) -- Cybertruck #1
-	locationTest = locationTest and locationTestCheck(newLocation, { -710, 500 }, 16, 16) -- LOGS
-	locationTest = locationTest and locationTestCheck(newLocation, { -557, 575 }, 16, 16) -- LOGS
-	locationTest = locationTest and locationTestCheck(newLocation, { -640, 770 }, 16, 16) -- LOGS
-	locationTest = locationTest and locationTestCheck(newLocation, { -790, 690 }, 16, 16) -- LOGS
-	locationTest = locationTest and locationTestCheck(newLocation, { -915, 860 }, 16, 16) -- LOGS
-	locationTest = locationTest and locationTestCheck(newLocation, { -765, 940 }, 16, 16) -- LOGS
+	locationTest = locationTest and locationTestCheck(newLocation, { 680, -1540 }, 48, 48) -- Big tree :D
+	locationTest = locationTest and locationTestCheck(newLocation, { 1505, -1110 }, 128, 32) -- Shed :D
+	locationTest = locationTest and locationTestCheck(newLocation, { 1730, -650 }, 80, 170) -- Cybertruck #1 :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -710, 500 }, 16, 16) -- LOGS :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -557, 575 }, 16, 16) -- LOGS :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -320, 770 }, 16, 16) -- LOGS :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -790, 690 }, 16, 16) -- LOGS :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -915, 860 }, 16, 16) -- LOGS :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -765, 940 }, 16, 16) -- LOGS :D
 	
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { -1440, 1190 }, 8, 160) -- CROSS
-	locationTest = locationTest and locationTestCheck(newLocation, { -1440, 1190 }, 160, 8) -- CROSS
+	locationTest = locationTest and locationTestCheck(newLocation, { -1440, 1190 }, 8, 160) -- CROSS :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -1440, 1190 }, 160, 8) -- CROSS :D
 	
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { -1610, 530 }, 100, 100) -- ROCKS
-	locationTest = locationTest and locationTestCheck(newLocation, { -800, 1350 }, 90, 90) -- SILO
+	locationTest = locationTest and locationTestCheck(newLocation, { -1610, -530 }, 200, 200) -- ROCKS :D 
+	locationTest = locationTest and locationTestCheck(newLocation, { -800, -1350 }, 90, 90) -- SILO :D
 	
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { -700, 550 }, 150, 50) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -700, 370 }, 150, 50) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -700, 210 }, 150, 50) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -700, 30 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, -550 }, 150, 50) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, -370 }, 150, 50) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, -210 }, 150, 50) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -700, -30 }, 150, 50) -- tanker :D
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { -210, 550 }, 150, 50) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -210, 370 }, 150, 50) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -210, 210 }, 150, 50) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -210, 30 }, 150, 50) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, -550 }, 150, 50) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, -370 }, 150, 50) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, -210 }, 150, 50) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -210, -30 }, 150, 50) -- tanker :D
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { -460, 50 }, 50, 150) -- tanker
-	locationTest = locationTest and locationTestCheck(newLocation, { -460, 500 }, 50, 150) -- tanker
+	locationTest = locationTest and locationTestCheck(newLocation, { -460, -50 }, 50, 150) -- tanker :D
+	locationTest = locationTest and locationTestCheck(newLocation, { -460, -500 }, 50, 150) -- tanker :D
 	
-	--Bathrooms!
+	--Bathrooms! - okay
 	locationTest = locationTest and locationTestCheck(newLocation, { 980, -450 }, 7, 105) -- Wall type 1
 	locationTest = locationTest and locationTestCheck(newLocation, { 760, -450 }, 7, 105) -- Wall type 1
 	locationTest = locationTest and locationTestCheck(newLocation, { 600, -450 }, 7, 105) -- Wall type 1
@@ -678,7 +688,7 @@ function update ()
 	locationTest = locationTest and locationTestCheck(newLocation, { 910, -340 }, 70, 7) -- Wall type 3
 	locationTest = locationTest and locationTestCheck(newLocation, { 910, -30 }, 70, 7) -- Wall type 3
 	
-	locationTest = locationTest and locationTestCheck(newLocation, { 640, -245 }, 80, 7) -- Wall type 4
+	locationTest = locationTest and locationTestCheck(newLocation, { 320, -245 }, 80, 7) -- Wall type 4
 	locationTest = locationTest and locationTestCheck(newLocation, { 680, -340 }, 80, 7) -- Wall type 4
 	
 	locationTest = locationTest and locationTestCheck(newLocation, { 450, -35 }, 110, 7) -- Wall type 5

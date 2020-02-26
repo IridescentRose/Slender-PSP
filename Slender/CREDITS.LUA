@@ -40,6 +40,8 @@ while true do
 		screen.print(240, 136, "Thank you for playing!", 1, white, gray, __ACENTER)
 	else break end
 	
+	if buttons.released.cross then break end
+	
 	
 	screen.flip()
 end

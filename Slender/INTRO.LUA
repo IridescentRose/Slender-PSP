@@ -29,6 +29,8 @@ while true do
 		mainScreen:blit(0, 0, alpha)
 	else break end
 	
+	if buttons.released.cross then break end
+	
 	screen.flip()
 end
 
