@@ -239,6 +239,15 @@ function render ()
 			
 		end
 	end
+	
+	
+	if buttons.released.select then
+		while not buttons.released.cross do
+			screen.print(240, 136, "Paused. Hit X to unpause.", 1, white, gray, __ACENTER)
+			buttons.read()
+			screen.flip()
+		end
+	end
 
 	amg.mode2d(0)
 
@@ -430,16 +439,16 @@ function update ()
 	end
 
 	if buttons.cross or buttons.held.cross then
-		playerRot[1] = playerRot[1] - 0.1 * dt
+		playerRot[1] = playerRot[1] - 0.15 * dt
 	end
 	if buttons.square or buttons.held.square then
-		playerRot[2] = playerRot[2] + 0.1 * dt
+		playerRot[2] = playerRot[2] + 0.15 * dt
 	end
 	if buttons.circle or buttons.held.circle then
-		playerRot[2] = playerRot[2] - 0.1 * dt
+		playerRot[2] = playerRot[2] - 0.15 * dt
 	end
 	if buttons.triangle or buttons.held.triangle then
-		playerRot[1] = playerRot[1] + 0.1 * dt
+		playerRot[1] = playerRot[1] + 0.15 * dt
 	end
 	
 	if playerRot[1] < -89 then
@@ -835,6 +844,7 @@ function update ()
 	if deathTimer:time() >= 4000 then
 		endAnim = true
 	end
+	
 end
 
 while true do
