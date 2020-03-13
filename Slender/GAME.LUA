@@ -856,7 +856,7 @@ while true do
 	deltaTimer:start()
 	
 	if won and endAnim then
-		os.exit()
+		break
 	end
 	
 end
