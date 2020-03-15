@@ -1,7 +1,4 @@
-boomboom = sound.load("assets/sounds/stage1.mp3")
-
-boomboom:loop()
-boomboom:play()
+stage1:play()
 
 
 bgTimer:reset(0)
@@ -46,4 +43,4 @@ while true do
 	screen.flip()
 end
 
-boomboom:stop()
+stage1:stop()
